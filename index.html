@@ -79,12 +79,12 @@
             <!-- Progress Bar & Info -->
             <div class="mb-6 border-b pb-4">
                 <div class="flex justify-between items-center mb-2">
-                    <span id="question-counter" class="text-sm font-bold text-indigo-600 uppercase tracking-wider">Questão 1 de 10</span>
+                    <span id="question-counter" class="text-sm font-bold text-indigo-600 uppercase tracking-wider">Questão 1 de 7</span>
                     <span id="score-badge" class="text-xs bg-indigo-100 text-indigo-800 font-semibold px-3 py-1 rounded-full">Pontos: 0</span>
                 </div>
                 <!-- Visual Progress Bar -->
                 <div class="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="bg-indigo-600 h-full transition-all duration-300 rounded-full" style="width: 10%;"></div>
+                    <div id="progress-bar" class="bg-indigo-600 h-full transition-all duration-300 rounded-full" style="width: 14%;"></div>
                 </div>
             </div>
 
@@ -121,7 +121,7 @@
             
             <div class="bg-indigo-50 p-5 rounded-2xl max-w-xs mx-auto mb-6">
                 <span class="block text-xs uppercase tracking-wider text-indigo-600 font-bold mb-1">Sua Pontuação</span>
-                <span id="final-score" class="text-4xl font-extrabold text-indigo-900">0 / 10</span>
+                <span id="final-score" class="text-4xl font-extrabold text-indigo-900">0 / 7</span>
                 <p id="final-message" class="text-slate-600 text-xs mt-1">Excelente desempenho!</p>
             </div>
 
@@ -170,19 +170,6 @@
         const questions = [
             {
                 number: 1,
-                question: "Observe a figura ao lado (Fada com varinha mágica). Qual é o nome dessa figura?",
-                context: "Questão baseada na imagem inicial da avaliação.",
-                mediaHtml: `<div class="flex justify-center my-4"><div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-100 flex flex-col items-center"><svg class="w-24 h-24 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg><span class="text-xs text-indigo-600 font-semibold mt-1">🧚 Fada com Varinha Mágica</span></div></div>`,
-                options: [
-                    { text: "Casa", isCorrect: false, rationale: "Incorreto. A imagem apresenta uma personagem com asas e coroa, não uma construção." },
-                    { text: "Fada", isCorrect: true, rationale: "Correto! A figura ilustra uma fada com asas, coroa e varinha mágica." },
-                    { text: "Gata", isCorrect: false, rationale: "Incorreto. A ilustração não representa um felino." },
-                    { text: "Vaca", isCorrect: false, rationale: "Incorreto. A figura humana fantástica não corresponde a uma vaca." }
-                ],
-                hint: "É uma criatura mágica de contos de fadas que usa coroa e varinha."
-            },
-            {
-                number: 2,
                 question: "Leia o texto sobre a construção da casa do João-de-barro. Qual é o assunto desse texto?",
                 context: "De que forma o João-de-barro constrói a própria casa? Primeiro, ele escolhe o local... A casa é construída em conjunto...",
                 options: [
@@ -194,7 +181,7 @@
                 hint: "Pense no tema principal que abrange desde a escolha do local até a divisão dos cômodos do ninho."
             },
             {
-                number: 3,
+                number: 2,
                 question: "De acordo com o texto sobre o João-de-barro, o segundo cômodo é forrado com",
                 context: "O segundo cômodo, forrado com pêlos, penas e musgo é onde a fêmea bota os ovos e acomoda os filhotes.",
                 options: [
@@ -206,7 +193,7 @@
                 hint: "Procure no final do texto os materiais macios usados onde a fêmea acomoda os filhotes."
             },
             {
-                number: 4,
+                number: 3,
                 question: "Esse texto sobre o João-de-barro serve para:",
                 context: "Texto informativo sobre o hábito de construção do ninho pelo joão-de-barro.",
                 options: [
@@ -218,7 +205,7 @@
                 hint: "Analise a finalidade principal de textos educativos e científicos voltados a curiosidades da fauna."
             },
             {
-                number: 5,
+                number: 4,
                 question: "No texto da música 'Xic, xic, xic' (Mundo Bita), a expressão 'Xic, xic, xic' foi usada para indicar:",
                 context: "Xic, xic, xic, para lá e para cá / Da escova quando escova o nosso dente...",
                 options: [
@@ -230,20 +217,7 @@
                 hint: "Preste atenção ao verso que acompanha imediatamente essa expressão na música."
             },
             {
-                number: 6,
-                question: "Observe a figura do ninho com folhas. Qual é o nome dessa figura que rima com o som?",
-                context: "Questão baseada na imagem de um ninho com rimas (bicho, milho, ninho, pinho).",
-                mediaHtml: `<div class="flex justify-center my-4"><div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-100 flex flex-col items-center"><svg class="w-24 h-24 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg><span class="text-xs text-amber-800 font-semibold mt-1">🪹 Ninho de Passarinho</span></div></div>`,
-                options: [
-                    { text: "Bicho", isCorrect: false, rationale: "Incorreto. 'Bicho' rima, mas a figura representada é um ninho de passarinho." },
-                    { text: "Milho", isCorrect: false, rationale: "Incorreto. A imagem não retrata espigas de milho." },
-                    { text: "Ninho", isCorrect: true, rationale: "Correto! A ilustração apresenta claramente um ninho com pequenos ramos e folhas." },
-                    { text: "Pinho", isCorrect: false, rationale: "Incorreto. Refere-se a uma árvore ou madeira, divergindo da imagem mostrada." }
-                ],
-                hint: "É a casa feita por aves onde elas colocam seus ovos."
-            },
-            {
-                number: 7,
+                number: 5,
                 question: "No trecho '... uma floresta brasileira que estava em polvorosa', a palavra 'polvorosa' significa:",
                 context: "Trecho do texto 'Festa na floresta': Era uma vez... uma floresta brasileira que estava em polvorosa...",
                 options: [
@@ -255,7 +229,7 @@
                 hint: "Pense em como fica um lugar quando todos estão muito eufóricos e agitados para um grande evento."
             },
             {
-                number: 8,
+                number: 6,
                 question: "Nesse texto ('Festa na floresta'), os animais demonstraram:",
                 context: "Vieram bichos de todos os cantos... cada um mais alegre do que o outro... celebraram a beleza da Terra!",
                 options: [
@@ -267,7 +241,7 @@
                 hint: "Observe expressões como 'mais alegre do que o outro' e 'celebraram'."
             },
             {
-                number: 9,
+                number: 7,
                 question: "De acordo com esse texto ('Festa na floresta'), quem trouxe uma grande bola de ouro?",
                 context: "... o mico-leão chegou com uma grande bola de ouro. O tuiuiú trouxe uma cesta com belas maçãs...",
                 options: [
@@ -277,19 +251,6 @@
                     { text: "O tuiuiú.", isCorrect: false, rationale: "Incorreto. O tuiuiú trouxe uma cesta com belas maçãs." }
                 ],
                 hint: "Volte a lista de presentes no texto e confira qual animal trouxe o primeiro presente citado."
-            },
-            {
-                number: 10,
-                question: "Na tirinha da Magali (com a Mônica posando perto da árvore), a menina pediu à Mônica para ficar mais à direita porque queria:",
-                context: "Magali pinta um quadro da árvore e pede para Mônica se mover: 'Mais um pouquinho pra direita! ... Isso!'",
-                mediaHtml: `<div class="flex justify-center my-4"><div class="p-3 bg-indigo-50 rounded-2xl border border-indigo-100 flex flex-col items-center"><svg class="w-24 h-24 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg><span class="text-xs text-emerald-700 font-semibold mt-1">🎨 Tirinha de Arte (Magali e Mônica)</span></div></div>`,
-                options: [
-                    { text: "Comer uma fruta.", isCorrect: false, rationale: "Incorreto. Magali está pintando um quadro num cavalete, e não colhendo frutas para comer." },
-                    { text: "Encontrar uma iluminação melhor.", isCorrect: false, rationale: "Incorreto. O objetivo artístico na cena não é a luz do sol, mas a composição visual." },
-                    { text: "Evitar que a árvore fizesse sombra.", isCorrect: false, rationale: "Incorreto. A posição de Mônica bloqueava ou atrapalhava o enquadramento da pintura da árvore." },
-                    { text: "Pintar somente a árvore.", isCorrect: true, rationale: "Correto! Mônica estava na frente da árvore atrapalhando a visão; ao ir para a direita, Magali consegue pintar a árvore inteira sem obstrução." }
-                ],
-                hint: "Observe o que Magali está fazendo com o cavalete e a tinta nos quadrinhos."
             }
         ];
 
@@ -299,10 +260,10 @@
         let userAnswers = new Array(questions.length).fill(null);
 
         let leaderboard = [
-            { name: "Ana Beatriz", score: 10, turma: "Turma C" },
-            { name: "Lucas Gabriel", score: 9, turma: "Turma C" },
-            { name: "Mariana Souza", score: 8, turma: "Turma C" },
-            { name: "João Pedro", score: 7, turma: "Turma C" }
+            { name: "Ana Beatriz", score: 7, turma: "Turma C" },
+            { name: "Lucas Gabriel", score: 6, turma: "Turma C" },
+            { name: "Mariana Souza", score: 6, turma: "Turma C" },
+            { name: "João Pedro", score: 5, turma: "Turma C" }
         ];
 
         function startQuiz() {
@@ -325,13 +286,12 @@
             document.getElementById("score-badge").innerText = `Pontos: ${score}`;
             
             const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
-            document.getElementById("progress-bar").style.width = `${Math.max(progressPercent, 10)}%`;
+            document.getElementById("progress-bar").style.width = `${Math.max(progressPercent, 14)}%`;
 
             const qContainer = document.getElementById("question-container");
             qContainer.innerHTML = `
                 <p class="text-xs font-semibold text-indigo-500 mb-2">${q.context}</p>
                 <h3 class="text-lg md:text-xl font-semibold text-slate-800 leading-snug">${q.question}</h3>
-                ${q.mediaHtml ? q.mediaHtml : ''}
                 <p class="text-xs text-indigo-600 mt-2 italic">💡 Dica: ${q.hint}</p>
             `;
 
@@ -410,8 +370,8 @@
             document.getElementById("final-score").innerText = `${score} / ${questions.length}`;
 
             let msg = "Excelente trabalho! Nota máxima!";
-            if (score <= 5) msg = "Continue estudando e revisando os textos!";
-            else if (score <= 8) msg = "Bom trabalho! Você foi muito bem!";
+            if (score <= 3) msg = "Continue estudando e revisando os textos!";
+            else if (score <= 5) msg = "Bom trabalho! Você foi muito bem!";
             document.getElementById("final-message").innerText = msg;
 
             leaderboard.push({ name: studentData.name, score: score, turma: studentData.turma });
@@ -461,7 +421,7 @@
             const reviewList = document.getElementById("review-list");
             reviewList.innerHTML = "";
 
-            questions.update = questions.forEach((q, idx) => {
+            questions.forEach((q, idx) => {
                 const userAns = userAnswers[idx];
                 const isCorrect = userAns ? userAns.isCorrect : false;
                 
